@@ -12,6 +12,7 @@
 		B7EA7EF01D9D7FD300E6E833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EA7EEF1D9D7FD300E6E833 /* Assets.xcassets */; };
 		B7EA7EF31D9D7FD300E6E833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EA7EF11D9D7FD300E6E833 /* LaunchScreen.storyboard */; };
 		B7EA7EFB1D9D808600E6E833 /* MyPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */; };
+		B7EA7EFD1D9DC34C00E6E833 /* imageData.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7EA7EFC1D9DC34C00E6E833 /* imageData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B7EA7EF21D9D7FD300E6E833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7EA7EF41D9D7FD300E6E833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		B7EA7EFC1D9DC34C00E6E833 /* imageData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = imageData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				B7EA7EEC1D9D7FD300E6E833 /* Main.storyboard */,
 				B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */,
 				B7EA7EEF1D9D7FD300E6E833 /* Assets.xcassets */,
+				B7EA7EFC1D9DC34C00E6E833 /* imageData.plist */,
 				B7EA7EF11D9D7FD300E6E833 /* LaunchScreen.storyboard */,
 				B7EA7EF41D9D7FD300E6E833 /* Info.plist */,
 			);
@@ -126,6 +129,7 @@
 			files = (
 				B7EA7EF31D9D7FD300E6E833 /* LaunchScreen.storyboard in Resources */,
 				B7EA7EF01D9D7FD300E6E833 /* Assets.xcassets in Resources */,
+				B7EA7EFD1D9DC34C00E6E833 /* imageData.plist in Resources */,
 				B7EA7EEE1D9D7FD300E6E833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +306,7 @@
 				B7EA7EF91D9D7FD300E6E833 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
