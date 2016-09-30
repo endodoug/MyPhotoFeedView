@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 typealias PhotosResult = ([Photo]?, Error?) -> Void
+typealias ImageResult = (UIImage?, Error?) -> Void
 
 extension Photo {
   class func getAllPlistPhotos(resourceUrl: URL, completion: @escaping PhotosResult) {
@@ -26,4 +28,21 @@ extension Photo {
       }
     }
   }
+  
+  func getThumbnail(completion: @escaping ImageResult) {
+    guard let name = self.assetName else {
+      completion(nil, nil) 
+      return
+    }
+    
+    DispatchQueue.global(qos: .userInitiated).async {
+      let image = UIImage(named: "thumb\(name)")
+      DispatchQueue.main.async {
+        completion(image, nil)
+      }
+    }
+    
+  }
+
+  
 }
