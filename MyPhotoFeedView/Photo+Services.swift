@@ -11,7 +11,7 @@ import Foundation
 typealias PhotosResult = ([Photo]?, Error?) -> Void
 
 extension Photo {
-  func getAllPlistPhotos(resourceUrl: URL, completion: @escaping PhotosResult) {
+  class func getAllPlistPhotos(resourceUrl: URL, completion: @escaping PhotosResult) {
     DispatchQueue.global(qos: .userInitiated).async {
       guard let items = NSArray(contentsOf: resourceUrl) as? [Dictionary<String, Any>] else { return print("items did not load") }
       var photos = [Photo]()
