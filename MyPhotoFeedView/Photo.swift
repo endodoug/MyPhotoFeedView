@@ -9,5 +9,13 @@
 import Foundation
 
 class Photo {
+  var itemId: String
   var photoName: String?
+  var assetName: String!
+  
+  init(itemId: String, photoName: String, assetName: String) {
+    self.itemId = itemId
+    self.photoName = photoName
+    self.assetName = assetName
+  }
 }
