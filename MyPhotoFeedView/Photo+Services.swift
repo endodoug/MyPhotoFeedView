@@ -19,6 +19,7 @@ extension Photo {
         let resourceName = anyItem["name"] as! String
         let title = anyItem["title"] as! String
         let photo = Photo(itemId: "\(count)", photoName: title, assetName: resourceName)
+        photos.append(photo)
       }
       DispatchQueue.main.async {
         completion(photos, nil)
