@@ -13,13 +13,17 @@ class PhotoCell: UICollectionViewCell {
   
   var photo: Photo? {
     didSet {
-      photo?.getThumbnail(completion: { [weak self] (image, error) in
-        guard error == nil else {
-          self?.photoImageView.image = UIImage(named: "Broken")
-          return
-        }
-        self?.photoImageView.image = image
+      if photo == nil {
+        photoImageView.image = UIImage(named: "Downloading")
+      } else {
+        photo?.getThumbnail(completion: { (image, error) in
+          guard error == nil else {
+            self.photoImageView.image = UIImage(named: "Broken")
+            return
+          }
+          self.photoImageView.image = image
         })
+      }
     }
   }
 }
