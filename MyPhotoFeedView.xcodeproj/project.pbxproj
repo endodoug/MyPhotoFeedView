@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B78BC84D1D9F64D00029A7FD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC84C1D9F64D00029A7FD /* MessageCell.swift */; };
 		B7EA7EE91D9D7FD300E6E833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EA7EE81D9D7FD300E6E833 /* AppDelegate.swift */; };
 		B7EA7EEE1D9D7FD300E6E833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7EA7EEC1D9D7FD300E6E833 /* Main.storyboard */; };
 		B7EA7EF01D9D7FD300E6E833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7EA7EEF1D9D7FD300E6E833 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B78BC84C1D9F64D00029A7FD /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		B7EA7EE51D9D7FD300E6E833 /* MyPhotoFeedView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPhotoFeedView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7EA7EE81D9D7FD300E6E833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7EA7EED1D9D7FD300E6E833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				B7EA7EE81D9D7FD300E6E833 /* AppDelegate.swift */,
 				B7EA7EEC1D9D7FD300E6E833 /* Main.storyboard */,
+				B78BC84C1D9F64D00029A7FD /* MessageCell.swift */,
 				B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */,
 				B7EA7EEF1D9D7FD300E6E833 /* Assets.xcassets */,
 				B7EA7EFC1D9DC34C00E6E833 /* imageData.plist */,
@@ -155,6 +158,7 @@
 				B7EA7EE91D9D7FD300E6E833 /* AppDelegate.swift in Sources */,
 				B7EA7EFB1D9D808600E6E833 /* MyPhotosCollectionViewController.swift in Sources */,
 				B7EA7EFF1D9DC66E00E6E833 /* Photo+Services.swift in Sources */,
+				B78BC84D1D9F64D00029A7FD /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

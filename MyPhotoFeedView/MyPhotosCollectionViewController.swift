@@ -11,7 +11,14 @@ import UIKit
 class MyPhotosCollectionViewController: UICollectionViewController {
   // optional arrary of Photo - will be loaded on VDL
   var photos: [Photo]?
+  
   let cellIdentifier = "photoCell"
+  let messageCellIdentifier = "messageCell"
+  
+  let loadingMessage = "Loading photos..."
+  var currentMessage: String!
+  
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,23 +33,50 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       self.collectionViewLayout.invalidateLayout()
       
     }
-    
-    print(photos?.description)
   }
 }
 
+// MARK: - CollectionView delegate/data source methods
+
 extension MyPhotosCollectionViewController {
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard let photos = photos else { return 0 }
+    guard let photos = photos else { return 1 }
     return photos.count
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell: UICollectionViewCell
-    guard let photos = photos, photos.count > 0 else { fatalError() }
-    let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PhotoCell
-    photoCell.photo = photos[indexPath.item]
-    cell = photoCell
+    if let photos = photos, photos.count > 0 {
+      let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PhotoCell
+      photoCell.photo = photos[indexPath.item]
+      cell = photoCell
+    } else {
+      let messageCell = collectionView.dequeueReusableCell(withReuseIdentifier: messageCellIdentifier, for: indexPath) as! MessageCell
+      messageCell.messageLabel.text = currentMessage
+      cell = messageCell
+    }
+    
     return cell
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
