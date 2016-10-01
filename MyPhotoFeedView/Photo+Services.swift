@@ -30,13 +30,21 @@ extension Photo {
   }
   
   func getThumbnail(completion: @escaping ImageResult) {
-    guard let name = self.assetName else {
-      completion(nil, nil) 
-      return
+      getImage(withPrefix: "thumb", completion: completion)
+    }
+    
+    func getImage(completion: @escaping ImageResult) {
+      getImage(withPrefix: "photo", completion: completion)
+    }
+    
+    private func getImage(withPrefix prefix: String, completion: @escaping ImageResult) {
+      guard let name = self.assetName else {
+        completion(nil, nil)
+        return
     }
     
     DispatchQueue.global(qos: .userInitiated).async {
-      let image = UIImage(named: "thumb\(name)")
+      let image = UIImage(named: "\(prefix)\(name)")
       DispatchQueue.main.async {
         completion(image, nil)
       }
@@ -46,3 +54,25 @@ extension Photo {
 
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

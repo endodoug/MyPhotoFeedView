@@ -18,6 +18,10 @@ class MyPhotosCollectionViewController: UICollectionViewController {
   let loadingMessage = "Loading photos..."
   var currentMessage: String!
   
+  private enum SegueIndentifier: String {
+    case photoDetail
+  }
+  
   
   
   override func viewDidLoad() {
@@ -32,6 +36,20 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       self.collectionView?.reloadData()
       self.collectionViewLayout.invalidateLayout()
       
+    }
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let identifier = segue.identifier else { return }
+    guard let segueIndentifier = SegueIndentifier(rawValue: identifier) else { return }
+    
+    switch segueIndentifier {
+    case .photoDetail:
+      let controller = segue.destination as! PhotoDetailViewController
+      let cell = sender as! PhotoCell
+      controller.photoToShow = cell.photo
+    default:
+      break
     }
   }
 }

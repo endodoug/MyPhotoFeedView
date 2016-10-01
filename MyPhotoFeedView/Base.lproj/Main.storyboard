@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,10 +42,14 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="photoImageView" destination="ekH-Ba-ddO" id="aKm-Wb-IAo"/>
+                                    <segue destination="Zat-15-jlN" kind="show" identifier="photoDetail" id="0qf-Ma-vpm">
+                                        <segue key="commit" inheritsFrom="parent" id="Emr-Op-anB"/>
+                                        <segue key="preview" inheritsFrom="commit" id="r6a-X9-dxP"/>
+                                    </segue>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="messageCell" id="bZb-jc-3gm" customClass="MessageCell" customModule="MyPhotoFeedView" customModuleProvider="target">
-                                <rect key="frame" x="140.5" y="25" width="94" height="167"/>
+                                <rect key="frame" x="141" y="25" width="94" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="94" height="167"/>
@@ -80,6 +85,38 @@
             </objects>
             <point key="canvasLocation" x="840.79999999999995" y="124.58770614692655"/>
         </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="UYB-OK-r86">
+            <objects>
+                <viewController id="Zat-15-jlN" customClass="PhotoDetailViewController" customModule="MyPhotoFeedView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NC4-vp-hrC"/>
+                        <viewControllerLayoutGuide type="bottom" id="3bm-qf-y3z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l6P-dM-9TA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-ID-3db">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hZx-ID-3db" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="33X-7Q-qS4"/>
+                            <constraint firstItem="3bm-qf-y3z" firstAttribute="top" secondItem="hZx-ID-3db" secondAttribute="bottom" id="9Ha-5k-lRd"/>
+                            <constraint firstAttribute="trailing" secondItem="hZx-ID-3db" secondAttribute="trailing" id="DSV-IE-Fl2"/>
+                            <constraint firstItem="hZx-ID-3db" firstAttribute="top" secondItem="NC4-vp-hrC" secondAttribute="bottom" id="NMk-Wr-0ah"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="hZx-ID-3db" id="843-R7-T9w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vn2-gD-0Mr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="124.58770614692655"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YBH-r5-CRh">
             <objects>
@@ -99,4 +136,7 @@
             <point key="canvasLocation" x="-98.400000000000006" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0qf-Ma-vpm"/>
+    </inferredMetricsTieBreakers>
 </document>
