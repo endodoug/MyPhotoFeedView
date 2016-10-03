@@ -18,6 +18,8 @@ class MyPhotosCollectionViewController: UICollectionViewController {
   let loadingMessage = "Loading photos..."
   var currentMessage: String!
   
+  let transitionController = ZoomTransitionController()
+  
   private enum SegueIndentifier: String {
     case photoDetail
   }
@@ -26,6 +28,8 @@ class MyPhotosCollectionViewController: UICollectionViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.navigationController?.delegate = transitionController
     
     guard let plistUrl = Bundle.main.url(forResource: "imageData", withExtension: "plist") else {
       fatalError("Error retrieving ImagaData")
@@ -45,8 +49,11 @@ class MyPhotosCollectionViewController: UICollectionViewController {
     
     switch segueIndentifier {
     case .photoDetail:
-      let controller = segue.destination as! PhotoDetailViewController
+      let transitionDelegate = self.navigationController!.delegate as! ZoomTransitionController
+      //let controller = segue.destination as! PhotoDetailViewController
       let cell = sender as! PhotoCell
+      transitionDelegate.sourceView = cell
+      let controller = segue.destination as! PhotoDetailViewController
       controller.photoToShow = cell.photo
     }
   }
