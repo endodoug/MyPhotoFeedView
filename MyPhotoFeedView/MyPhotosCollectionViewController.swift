@@ -48,8 +48,6 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       let controller = segue.destination as! PhotoDetailViewController
       let cell = sender as! PhotoCell
       controller.photoToShow = cell.photo
-    default:
-      break
     }
   }
 }

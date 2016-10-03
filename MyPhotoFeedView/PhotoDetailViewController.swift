@@ -10,6 +10,9 @@ import UIKit
 
 class PhotoDetailViewController: UIViewController {
   
+  @IBOutlet weak var quarterHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var halfHeightConstraint: NSLayoutConstraint!
+  
   var photoToShow: Photo!
   @IBOutlet weak var photoImageView: UIImageView!
   
@@ -20,5 +23,13 @@ class PhotoDetailViewController: UIViewController {
       self.photoImageView.image = image
     }
     
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    UIView.animate(withDuration: 0.4, delay: 1.0, options: .curveEaseInOut, animations: { 
+      self.halfHeightConstraint.isActive = false
+      self.quarterHeightConstraint.isActive = true
+      self.view.layoutIfNeeded()
+      }, completion: nil)
   }
 }

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,7 +50,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="messageCell" id="bZb-jc-3gm" customClass="MessageCell" customModule="MyPhotoFeedView" customModuleProvider="target">
-                                <rect key="frame" x="141" y="25" width="94" height="167"/>
+                                <rect key="frame" x="140.5" y="25" width="94" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="94" height="167"/>
@@ -97,20 +98,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-ID-3db">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-ID-3db">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hy-He-E0S" userLabel="Label View">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-o2-eQ8">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="0.40500245418848169" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="t2i-o2-eQ8" firstAttribute="top" secondItem="2hy-He-E0S" secondAttribute="top" constant="20" symbolic="YES" id="VYP-LZ-ISN"/>
+                                    <constraint firstItem="t2i-o2-eQ8" firstAttribute="centerX" secondItem="2hy-He-E0S" secondAttribute="centerX" id="Z8m-PW-d2M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="2hT-Hh-e0G"/>
                             <constraint firstItem="hZx-ID-3db" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="33X-7Q-qS4"/>
                             <constraint firstItem="3bm-qf-y3z" firstAttribute="top" secondItem="hZx-ID-3db" secondAttribute="bottom" id="9Ha-5k-lRd"/>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="hZx-ID-3db" secondAttribute="height" multiplier="0.25" id="B9v-aY-j6e" userLabel="Quarter Height"/>
                             <constraint firstAttribute="trailing" secondItem="hZx-ID-3db" secondAttribute="trailing" id="DSV-IE-Fl2"/>
                             <constraint firstItem="hZx-ID-3db" firstAttribute="top" secondItem="NC4-vp-hrC" secondAttribute="bottom" id="NMk-Wr-0ah"/>
+                            <constraint firstAttribute="trailing" secondItem="2hy-He-E0S" secondAttribute="trailing" id="RZK-iG-Xpr"/>
+                            <constraint firstItem="3bm-qf-y3z" firstAttribute="top" secondItem="2hy-He-E0S" secondAttribute="bottom" id="hML-5I-uAF"/>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="hZx-ID-3db" secondAttribute="height" multiplier="0.5" id="vOn-MV-SRn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="B9v-aY-j6e"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="halfHeightConstraint" destination="vOn-MV-SRn" id="wd3-QS-cBZ"/>
                         <outlet property="photoImageView" destination="hZx-ID-3db" id="843-R7-T9w"/>
+                        <outlet property="quarterHeightConstraint" destination="B9v-aY-j6e" id="gyW-3Z-xFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vn2-gD-0Mr" userLabel="First Responder" sceneMemberID="firstResponder"/>
