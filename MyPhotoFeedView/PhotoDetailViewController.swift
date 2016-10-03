@@ -26,7 +26,7 @@ class PhotoDetailViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    UIView.animate(withDuration: 0.4, delay: 1.0, options: .curveEaseInOut, animations: { 
+    UIView.animate(withDuration: 0.7, delay: 1.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: .curveEaseInOut, animations: {
       self.halfHeightConstraint.isActive = false
       self.quarterHeightConstraint.isActive = true
       self.view.layoutIfNeeded()
