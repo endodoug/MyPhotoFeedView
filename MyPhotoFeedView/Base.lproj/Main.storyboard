@@ -37,6 +37,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekH-Ba-ddO"/>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZKy-EY-XS1">
+                                            <frame key="frameInset" minX="7" minY="89" width="80" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.80784314869999996" green="0.027450980619999999" blue="0.33333334329999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -48,6 +52,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="photoImageView" destination="ekH-Ba-ddO" id="aKm-Wb-IAo"/>
+                                    <outlet property="progressView" destination="ZKy-EY-XS1" id="1bN-NE-7cJ"/>
                                     <segue destination="Zat-15-jlN" kind="show" identifier="photoDetail" id="0qf-Ma-vpm">
                                         <segue key="commit" inheritsFrom="parent" id="Emr-Op-anB"/>
                                         <segue key="preview" inheritsFrom="commit" id="r6a-X9-dxP"/>

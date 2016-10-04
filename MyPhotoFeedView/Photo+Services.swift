@@ -23,7 +23,7 @@ extension Photo {
       for (count, anyItem) in items.enumerated() {
         let resourceName = anyItem["name"] as! String
         let title = anyItem["title"] as! String
-        let photo = Photo(itemId: "\(count)", photoName: title, assetName: resourceName)
+        let photo = Photo(itemId: "\(count)", assetName: resourceName, photoName: title)
         photos.append(photo)
       }
       DispatchQueue.main.async {
@@ -32,22 +32,45 @@ extension Photo {
     }
   }
   
-  class func getAllFeedPhotos(completion: PhotosResult) {
-    //
+  
+  class func getAllFeedPhotos(completion: @escaping PhotosResult) {
+    
+    guard let url = URL(string: "https://api.flickr.com/services/feeds/photos_faves.gne?id=57391790%40N00&format=json&nojsoncallback=1") else {
+      completion(nil, PhotoServiceError.URLParsing)
+      return
+    }
+    
+    NetworkClient.sharedInstance.getURL(url) { (result, error) in
+      guard error == nil else {
+        completion(nil, error)
+        return
+      }
+      if let dictionary = result as? Dictionary<String,Any>,
+        let items = dictionary["items"] as? [Dictionary<String,Any>] {
+        var photos = [Photo]()
+        for item in items {
+          photos.append(Photo(dictionary: item))
+        }
+        completion(photos, nil)
+      } else {
+        completion(nil, PhotoServiceError.JSONStructure)
+      }
+    }
+    
   }
   
   func getThumbnail(completion: @escaping ImageResult) {
-      getImage(withPrefix: "thumb", completion: completion)
-    }
-    
-    func getImage(completion: @escaping ImageResult) {
-      getImage(withPrefix: "photo", completion: completion)
-    }
-    
-    private func getImage(withPrefix prefix: String, completion: @escaping ImageResult) {
-      guard let name = self.assetName else {
-        completion(nil, nil, nil)
-        return
+    getImage(withPrefix: "thumb", completion: completion)
+  }
+  
+  func getImage(completion: @escaping ImageResult) {
+    getImage(withPrefix: "photo", completion: completion)
+  }
+  
+  private func getImage(withPrefix prefix: String, completion: @escaping ImageResult) {
+    guard let name = self.assetName else {
+      completion(nil, nil, nil)
+      return
     }
     
     DispatchQueue.global(qos: .userInitiated).async {
@@ -58,7 +81,7 @@ extension Photo {
     }
     
   }
-
+  
   
 }
 

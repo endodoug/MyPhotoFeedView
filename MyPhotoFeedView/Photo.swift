@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Photo {
+class Photo:NSObject {
   var itemId: String
   var photoName: String?
   var assetName: String!
@@ -16,9 +16,28 @@ class Photo {
   var photoImage: UIImage?
   public var usePhotoForThumb = false
   
-  init(itemId: String, photoName: String, assetName: String) {
+  init(itemId: String, assetName: String, photoName: String? = nil) {
     self.itemId = itemId
-    self.photoName = photoName
     self.assetName = assetName
+    self.photoName = photoName
   }
+  
+  init(dictionary values: Dictionary<String, Any>) {
+    guard let link = values["link"] as? String else {
+      fatalError("Photo item could not be created: " + values.description)
+    }
+    itemId = link
+    
+    guard let media = values["media"] as? Dictionary<String, Any>,
+      let urlString = media["m"] as? String, let url = URL(string: urlString) else {
+        fatalError("Photo item could not be created: " + values.description)
+    }
+    photoUrl = url
+    
+    if let title = values["title"] as? String {
+      photoName = title
+    }
+    super.init()
+  }
+  
 }
