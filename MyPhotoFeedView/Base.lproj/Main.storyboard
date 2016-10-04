@@ -124,9 +124,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo11" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-ID-3db">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVQ-6I-gb0" customClass="PhotoMotionView" customModule="MyPhotoFeedView" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hy-He-E0S" userLabel="Label View">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-o2-eQ8">
@@ -144,26 +144,26 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2hy-He-E0S" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="2hT-Hh-e0G"/>
-                            <constraint firstItem="hZx-ID-3db" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="33X-7Q-qS4"/>
-                            <constraint firstItem="3bm-qf-y3z" firstAttribute="top" secondItem="hZx-ID-3db" secondAttribute="bottom" id="9Ha-5k-lRd"/>
-                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="hZx-ID-3db" secondAttribute="height" multiplier="0.25" id="B9v-aY-j6e" userLabel="Quarter Height"/>
-                            <constraint firstAttribute="trailing" secondItem="hZx-ID-3db" secondAttribute="trailing" id="DSV-IE-Fl2"/>
-                            <constraint firstItem="hZx-ID-3db" firstAttribute="top" secondItem="NC4-vp-hrC" secondAttribute="bottom" id="NMk-Wr-0ah"/>
-                            <constraint firstAttribute="trailing" secondItem="2hy-He-E0S" secondAttribute="trailing" id="RZK-iG-Xpr"/>
-                            <constraint firstItem="3bm-qf-y3z" firstAttribute="top" secondItem="2hy-He-E0S" secondAttribute="bottom" id="hML-5I-uAF"/>
-                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="hZx-ID-3db" secondAttribute="height" multiplier="0.5" id="vOn-MV-SRn"/>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="NVQ-6I-gb0" secondAttribute="height" multiplier="0.25" id="5z4-MU-C1a"/>
+                            <constraint firstAttribute="bottom" secondItem="NVQ-6I-gb0" secondAttribute="bottom" id="6Wr-ip-Ssp"/>
+                            <constraint firstAttribute="trailing" secondItem="2hy-He-E0S" secondAttribute="trailing" id="F14-z3-jKq"/>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="NVQ-6I-gb0" secondAttribute="height" multiplier="0.5" id="FzV-Kd-Osz" userLabel="HalfHeight"/>
+                            <constraint firstAttribute="trailing" secondItem="NVQ-6I-gb0" secondAttribute="trailing" id="UGf-KE-FKK"/>
+                            <constraint firstItem="NVQ-6I-gb0" firstAttribute="top" secondItem="NC4-vp-hrC" secondAttribute="bottom" id="Whh-rv-HuF"/>
+                            <constraint firstItem="NVQ-6I-gb0" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="ghw-dQ-pw3"/>
+                            <constraint firstItem="2hy-He-E0S" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="hIs-DU-Y8N"/>
+                            <constraint firstAttribute="bottom" secondItem="2hy-He-E0S" secondAttribute="bottom" id="pxf-1z-TNh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="B9v-aY-j6e"/>
+                                <exclude reference="5z4-MU-C1a"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="halfHeightConstraint" destination="vOn-MV-SRn" id="wd3-QS-cBZ"/>
-                        <outlet property="photoImageView" destination="hZx-ID-3db" id="843-R7-T9w"/>
-                        <outlet property="quarterHeightConstraint" destination="B9v-aY-j6e" id="gyW-3Z-xFP"/>
+                        <outlet property="halfHeightConstraint" destination="FzV-Kd-Osz" id="f31-Xk-Jgs"/>
+                        <outlet property="photoImageView" destination="NVQ-6I-gb0" id="a4n-VI-pAL"/>
+                        <outlet property="quarterHeightConstraint" destination="5z4-MU-C1a" id="s09-wo-uA8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vn2-gD-0Mr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,9 +189,6 @@
             <point key="canvasLocation" x="-98.400000000000006" y="124.58770614692655"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="photo11" width="4032" height="3024"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0qf-Ma-vpm"/>
     </inferredMetricsTieBreakers>

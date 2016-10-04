@@ -12,10 +12,10 @@ class PhotoDetailViewController: UIViewController {
   
   @IBOutlet weak var quarterHeightConstraint: NSLayoutConstraint!
   @IBOutlet weak var halfHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var photoImageView: PhotoMotionView!
   
   var photoToShow: Photo!
   var photoProvider: PhotoProvider!
-  @IBOutlet weak var photoImageView: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
