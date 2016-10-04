@@ -18,7 +18,7 @@
         <scene sceneID="e4S-fp-neC">
             <objects>
                 <collectionViewController id="hgu-mP-chn" customClass="MyPhotosCollectionViewController" customModule="MyPhotoFeedView" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" id="dX3-i3-4Vz">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" id="dX3-i3-4Vz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,8 +124,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVQ-6I-gb0" customClass="PhotoMotionView" customModule="MyPhotoFeedView" customModuleProvider="target">
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVQ-6I-gb0" customClass="PhotoMotionView" customModule="MyPhotoFeedView" customModuleProvider="target">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="photo1"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hy-He-E0S" userLabel="Label View">
                                 <subviews>
@@ -148,8 +151,8 @@
                             <constraint firstAttribute="bottom" secondItem="NVQ-6I-gb0" secondAttribute="bottom" id="6Wr-ip-Ssp"/>
                             <constraint firstAttribute="trailing" secondItem="2hy-He-E0S" secondAttribute="trailing" id="F14-z3-jKq"/>
                             <constraint firstItem="2hy-He-E0S" firstAttribute="height" secondItem="NVQ-6I-gb0" secondAttribute="height" multiplier="0.5" id="FzV-Kd-Osz" userLabel="HalfHeight"/>
+                            <constraint firstItem="NVQ-6I-gb0" firstAttribute="top" secondItem="l6P-dM-9TA" secondAttribute="top" id="QZK-LL-opF"/>
                             <constraint firstAttribute="trailing" secondItem="NVQ-6I-gb0" secondAttribute="trailing" id="UGf-KE-FKK"/>
-                            <constraint firstItem="NVQ-6I-gb0" firstAttribute="top" secondItem="NC4-vp-hrC" secondAttribute="bottom" id="Whh-rv-HuF"/>
                             <constraint firstItem="NVQ-6I-gb0" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="ghw-dQ-pw3"/>
                             <constraint firstItem="2hy-He-E0S" firstAttribute="leading" secondItem="l6P-dM-9TA" secondAttribute="leading" id="hIs-DU-Y8N"/>
                             <constraint firstAttribute="bottom" secondItem="2hy-He-E0S" secondAttribute="bottom" id="pxf-1z-TNh"/>
@@ -175,7 +178,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRg-3T-l0C" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JAh-cL-fTe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JAh-cL-fTe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -189,6 +192,9 @@
             <point key="canvasLocation" x="-98.400000000000006" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo1" width="4032" height="3024"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0qf-Ma-vpm"/>
     </inferredMetricsTieBreakers>

@@ -20,9 +20,9 @@ class PhotoDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    photoToShow.getImage { (nil, image, error) in
+    photoProvider.getImageForPhoto(photoToShow, progressBlock: nil, completion: { (originalUrl, image, error) in
       self.photoImageView.image = image
-    }
+    })
     
   }
   
