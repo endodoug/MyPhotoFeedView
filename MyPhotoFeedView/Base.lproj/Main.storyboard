@@ -8,12 +8,17 @@
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Black.ttf">
+            <string>Roboto-Black</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--My Photos Collection View Controller-->
         <scene sceneID="e4S-fp-neC">
             <objects>
                 <collectionViewController id="hgu-mP-chn" customClass="MyPhotosCollectionViewController" customModule="MyPhotoFeedView" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" id="dX3-i3-4Vz">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" id="dX3-i3-4Vz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,7 +55,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="messageCell" id="bZb-jc-3gm" customClass="MessageCell" customModule="MyPhotoFeedView" customModuleProvider="target">
-                                <rect key="frame" x="140.5" y="25" width="94" height="167"/>
+                                <rect key="frame" x="141" y="25" width="94" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="94" height="167"/>
@@ -80,7 +85,23 @@
                             <outlet property="delegate" destination="hgu-mP-chn" id="ckI-Tt-Oux"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="VQq-Z8-FzL"/>
+                    <navigationItem key="navigationItem" id="VQq-Z8-FzL">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="IIW-ex-cfE">
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Plist"/>
+                                <segment title="Flickr"/>
+                            </segments>
+                            <connections>
+                                <action selector="sourceSegmentControllerChanged:" destination="hgu-mP-chn" eventType="valueChanged" id="Zs5-y9-b6u"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sourceSegmentController" destination="IIW-ex-cfE" id="7VV-Ve-pqM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yij-xj-MUF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,7 +125,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hy-He-E0S" userLabel="Label View">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2i-o2-eQ8">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -149,7 +170,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KRg-3T-l0C" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JAh-cL-fTe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="JAh-cL-fTe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

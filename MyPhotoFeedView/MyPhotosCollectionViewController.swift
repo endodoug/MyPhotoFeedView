@@ -9,6 +9,9 @@
 import UIKit
 
 class MyPhotosCollectionViewController: UICollectionViewController {
+  
+  @IBOutlet weak var sourceSegmentController: UISegmentedControl!
+  
   // optional arrary of Photo - will be loaded on VDL
   var photos: [Photo]?
   
@@ -24,7 +27,10 @@ class MyPhotosCollectionViewController: UICollectionViewController {
     case photoDetail
   }
   
-  
+  enum PhotoSource {
+    case plist
+    case flickr
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -57,6 +63,57 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       controller.photoToShow = cell.photo
     }
   }
+  
+  private func setPhotoProvider() {
+    currentMessage = loadingMessage
+    photos = nil
+    collectionView!.reloadData()
+    collectionViewLayout.invalidateLayout()
+    
+    let photoResult: PhotosResult = { [weak self] (photos, error) in
+      guard error == nil else {
+        if let error = error as? PhotoServiceError {
+          self?.currentMessage = error.rawValue
+        } else if let error = error as? NSError {
+          self?.currentMessage = error.localizedDescription
+        } else {
+          self?.currentMessage = "Sorry, there was an error."
+        }
+        self?.photos = nil
+        self?.collectionView?.reloadData()
+        self?.collectionViewLayout.invalidateLayout()
+        return
+      }
+      self?.photos = photos
+      self?.collectionView?.reloadData()
+      self?.collectionViewLayout.invalidateLayout()
+    }
+    
+    if sourceSegmentController.selectedSegmentIndex == 1 {
+      FlickrPhotoProvider().getAllPhotos(completion: photoResult)
+    } else {
+      guard let plistUrl = Bundle.main.url(forResource: "imageData", withExtension: "plist") else {
+        fatalError("Error retrieving ImageData")
+      }
+      PlistPhotoProvider(resourceUrl: plistUrl).getAllPhotos(completion: photoResult)
+    }
+  }
+  
+  func selectSource(_ provider: PhotoSource) {
+    switch provider {
+    case .plist:
+      sourceSegmentController.selectedSegmentIndex = 0
+    case .flickr:
+      sourceSegmentController.selectedSegmentIndex = 1
+    }
+    setPhotoProvider()
+  }
+  
+  @IBAction func sourceSegmentControllerChanged(_ sender: UISegmentedControl) {
+    setPhotoProvider()
+  }
+  
+  
 }
 
 // MARK: - CollectionView delegate/data source methods
@@ -71,6 +128,16 @@ extension MyPhotosCollectionViewController {
     let cell: UICollectionViewCell
     if let photos = photos, photos.count > 0 {
       let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! PhotoCell
+      
+      if sourceSegmentController.selectedSegmentIndex == 1 {
+        photoCell.photoProvider = FlickrPhotoProvider()
+      } else {
+        guard let plistUrl = Bundle.main.url(forResource: "imageData", withExtension: "plist") else {
+          fatalError("Error retrieving imageData")
+        }
+        photoCell.photoProvider = PlistPhotoProvider(resourceUrl: plistUrl)
+      }
+      
       photoCell.photo = photos[indexPath.item]
       cell = photoCell
     } else {

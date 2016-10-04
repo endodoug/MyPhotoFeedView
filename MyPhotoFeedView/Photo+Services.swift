@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 
-typealias PhotosResult = ([Photo]?, Error?) -> Void
-typealias ImageResult = (UIImage?, Error?) -> Void
+enum PhotoServiceError: String, Error {
+  case NotImplemented = "This feature has not been implemented yet."
+  case URLParsing = "Sorry, there was an error getting the photos."
+  case JSONStructure = "Sorry, the photo service returned something different than expected."
+}
 
 extension Photo {
   class func getAllPlistPhotos(resourceUrl: URL, completion: @escaping PhotosResult) {
@@ -29,6 +32,10 @@ extension Photo {
     }
   }
   
+  class func getAllFeedPhotos(completion: PhotosResult) {
+    //
+  }
+  
   func getThumbnail(completion: @escaping ImageResult) {
       getImage(withPrefix: "thumb", completion: completion)
     }
@@ -39,14 +46,14 @@ extension Photo {
     
     private func getImage(withPrefix prefix: String, completion: @escaping ImageResult) {
       guard let name = self.assetName else {
-        completion(nil, nil)
+        completion(nil, nil, nil)
         return
     }
     
     DispatchQueue.global(qos: .userInitiated).async {
       let image = UIImage(named: "\(prefix)\(name)")
       DispatchQueue.main.async {
-        completion(image, nil)
+        completion(nil, image, nil)
       }
     }
     

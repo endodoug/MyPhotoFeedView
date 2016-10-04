@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B74E0FB11DA3488300798A09 /* PhotoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74E0FB01DA3488300798A09 /* PhotoProvider.swift */; };
+		B74E0FB31DA350FC00798A09 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74E0FB21DA350FC00798A09 /* NetworkClient.swift */; };
 		B78BC84D1D9F64D00029A7FD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC84C1D9F64D00029A7FD /* MessageCell.swift */; };
 		B7A6781D1DA0412000DEC41A /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A6781C1DA0412000DEC41A /* PhotoDetailViewController.swift */; };
 		B7AC4E371DA3057B0085ACB5 /* ZoomTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AC4E361DA3057B0085ACB5 /* ZoomTransitionController.swift */; };
@@ -38,6 +40,8 @@
 		B74E0FAD1DA30E1700798A09 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		B74E0FAE1DA30E1700798A09 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		B74E0FAF1DA30E1700798A09 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		B74E0FB01DA3488300798A09 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoProvider.swift; sourceTree = "<group>"; };
+		B74E0FB21DA350FC00798A09 /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		B78BC84C1D9F64D00029A7FD /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		B7A6781C1DA0412000DEC41A /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		B7AC4E361DA3057B0085ACB5 /* ZoomTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomTransitionController.swift; sourceTree = "<group>"; };
@@ -114,10 +118,12 @@
 				B7A6781C1DA0412000DEC41A /* PhotoDetailViewController.swift */,
 				B78BC84C1D9F64D00029A7FD /* MessageCell.swift */,
 				B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */,
+				B74E0FB01DA3488300798A09 /* PhotoProvider.swift */,
 				B7EA7EEF1D9D7FD300E6E833 /* Assets.xcassets */,
 				B7EA7EFC1D9DC34C00E6E833 /* imageData.plist */,
 				B7EA7EFE1D9DC66E00E6E833 /* Photo+Services.swift */,
 				B7AC4E361DA3057B0085ACB5 /* ZoomTransitionController.swift */,
+				B74E0FB21DA350FC00798A09 /* NetworkClient.swift */,
 				B7EA7F001D9DC74300E6E833 /* Photo.swift */,
 				B7EA7F021D9DC76E00E6E833 /* PhotoCell.swift */,
 				B7EA7EF11D9D7FD300E6E833 /* LaunchScreen.storyboard */,
@@ -200,6 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B74E0FB11DA3488300798A09 /* PhotoProvider.swift in Sources */,
+				B74E0FB31DA350FC00798A09 /* NetworkClient.swift in Sources */,
 				B7EA7F011D9DC74300E6E833 /* Photo.swift in Sources */,
 				B7EA7F031D9DC76E00E6E833 /* PhotoCell.swift in Sources */,
 				B7EA7EE91D9D7FD300E6E833 /* AppDelegate.swift in Sources */,

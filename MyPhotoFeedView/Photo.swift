@@ -6,12 +6,15 @@
 //  Copyright © 2016 Doug Harper. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Photo {
   var itemId: String
   var photoName: String?
   var assetName: String!
+  var photoUrl: URL!
+  var photoImage: UIImage?
+  public var usePhotoForThumb = false
   
   init(itemId: String, photoName: String, assetName: String) {
     self.itemId = itemId
