@@ -47,7 +47,17 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       self.collectionViewLayout.invalidateLayout()
       
     }
+    
+    setupAccessibility()
+    
   }
+  
+  func setupAccessibility() {
+    let segment: NSString = "Plist"
+    segment.accessibilityLabel = "P list"
+    sourceSegmentController.setTitle(segment as String, forSegmentAt: 0)
+  }
+
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     guard let identifier = segue.identifier else { return }
@@ -61,6 +71,7 @@ class MyPhotosCollectionViewController: UICollectionViewController {
       transitionDelegate.sourceView = cell
       let controller = segue.destination as! PhotoDetailViewController
       controller.photoToShow = cell.photo
+      controller.photoProvider = cell.photoProvider
     }
   }
   

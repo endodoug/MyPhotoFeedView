@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B727DE641DA4048200CF5456 /* PhotoMotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B727DE631DA4048200CF5456 /* PhotoMotionView.swift */; };
 		B74E0FB11DA3488300798A09 /* PhotoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74E0FB01DA3488300798A09 /* PhotoProvider.swift */; };
 		B74E0FB31DA350FC00798A09 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74E0FB21DA350FC00798A09 /* NetworkClient.swift */; };
 		B78BC84D1D9F64D00029A7FD /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BC84C1D9F64D00029A7FD /* MessageCell.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B727DE631DA4048200CF5456 /* PhotoMotionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoMotionView.swift; sourceTree = "<group>"; };
 		B74E0FA01DA30E1700798A09 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		B74E0FA11DA30E1700798A09 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		B74E0FA21DA30E1700798A09 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B7EA7EE81D9D7FD300E6E833 /* AppDelegate.swift */,
 				B7EA7EEC1D9D7FD300E6E833 /* Main.storyboard */,
 				B7A6781C1DA0412000DEC41A /* PhotoDetailViewController.swift */,
+				B727DE631DA4048200CF5456 /* PhotoMotionView.swift */,
 				B78BC84C1D9F64D00029A7FD /* MessageCell.swift */,
 				B7EA7EFA1D9D808600E6E833 /* MyPhotosCollectionViewController.swift */,
 				B74E0FB01DA3488300798A09 /* PhotoProvider.swift */,
@@ -210,6 +213,7 @@
 				B74E0FB31DA350FC00798A09 /* NetworkClient.swift in Sources */,
 				B7EA7F011D9DC74300E6E833 /* Photo.swift in Sources */,
 				B7EA7F031D9DC76E00E6E833 /* PhotoCell.swift in Sources */,
+				B727DE641DA4048200CF5456 /* PhotoMotionView.swift in Sources */,
 				B7EA7EE91D9D7FD300E6E833 /* AppDelegate.swift in Sources */,
 				B7A6781D1DA0412000DEC41A /* PhotoDetailViewController.swift in Sources */,
 				B7EA7EFB1D9D808600E6E833 /* MyPhotosCollectionViewController.swift in Sources */,
